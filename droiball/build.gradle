@@ -1,0 +1,41 @@
+apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
+
+android {
+    compileSdkVersion 14
+    buildToolsVersion "22.0.0"
+
+    defaultConfig {
+        applicationId "net.cattaka.droiball"
+        minSdkVersion 14
+        targetSdkVersion 15
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
+}
+
+dependencies {
+    apt 'net.cattaka:cathandsgendroid-apt:0.4.1'
+    compile 'com.android.support:support-v4:20.+'
+    compile 'net.cattaka:cathandsgendroid-core:0.4.1'
+    compile project(':openCVLibrary2410')
+    compile 'net.cattaka:libgeppa:1.0.0'
+    compile 'org.twitter4j:twitter4j-async:2.2.6'
+    compile 'org.twitter4j:twitter4j-core:2.2.6'
+    compile 'org.twitter4j:twitter4j-media-support:2.2.6'
+    compile 'org.twitter4j:twitter4j-stream:2.2.6'
+}
